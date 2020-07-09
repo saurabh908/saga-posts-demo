@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPosts } from '../actions';
 
+import { Container, Jumbotron,Button } from "react-bootstrap";
 class PostsIndex extends Component {
   componentDidMount() {
     this.props.fetchPosts();
@@ -21,7 +22,8 @@ class PostsIndex extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
+      <Jumbotron>
         <div className="text-xs-right">
           <Link className="btn btn-primary" to="/posts/new">
             Add a Post
@@ -31,7 +33,13 @@ class PostsIndex extends Component {
         <ul className="list-group">
           {this.renderPosts()}
         </ul>
-      </div>
+        <div>
+          <Button variant="primary" size="sm" onClick={() => this.props.fetchPosts()}>
+            Fetch Mock Data
+          </Button>{" "}
+        </div>
+      </Jumbotron>
+    </Container>
     );
   }
 }

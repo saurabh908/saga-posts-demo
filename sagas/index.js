@@ -1,10 +1,7 @@
 import 'regenerator-runtime/runtime';
 
 import {
-  watchFetchPosts,
-  watchFetchPost,
-  watchCreatePost,
-  watchDeletePost
+  watchFetchPosts
 } from './PostsSagas';
 
 // Root sagas
@@ -12,8 +9,6 @@ import {
 export default function* rootSaga() {
   yield [
     watchFetchPosts(),
-    watchFetchPost(),
-    watchCreatePost(),
-    watchDeletePost()
+
   ];
 }
